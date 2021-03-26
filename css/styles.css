@@ -6,6 +6,7 @@
   --title-color: #212121;
   --accent-color: #2196f3;
   --logo-color: #000000;
+  --icon-color: #afb1b8;
   --grid-item: 1;
 }
 html {
@@ -74,8 +75,6 @@ img {
   padding-right: 15px;
   margin-right: auto;
   margin-left: auto;
-
-  /* outline: 1px solid tomato; */
 }
 
 .header {
@@ -84,21 +83,19 @@ img {
 
 .header .container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  /* align-items: center;
+  justify-content: space-between; */
 }
 
 .header .logo {
   margin-right: 93px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 .navigation {
   display: flex;
   align-items: center;
-}
-
-.dark-bd {
-  background-color: var(--dark-bg-color);
 }
 
 .logo {
@@ -111,9 +108,6 @@ img {
 }
 
 .logo-item {
-  padding-top: 24px;
-  padding-bottom: 24px;
-
   color: var(--accent-color);
 }
 
@@ -138,13 +132,50 @@ img {
   margin-top: 30px;
 }
 
+.social-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons-item + .social-icons-item {
+  margin-left: 10px;
+}
+
+.social-icons-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.social-icons .icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--icon-color);
+}
+
+.social-icons-link:hover,
+.social-icons-link:focus {
+  background-color: var(--accent-color);
+}
+
+.social-icons-link:hover .icon,
+.social-icons-link:focus .icon {
+  fill: var(--primary-white-color);
+}
+
 /* Навигация сайта */
 
 .site-nav,
 .contact-nav {
   display: flex;
-  padding-top: 32px;
-  padding-bottom: 32px;
+}
+
+.contact-nav {
+  margin-left: auto;
 }
 
 .site-nav-item:not(:last-child),
@@ -152,10 +183,13 @@ img {
   margin-right: 50px;
 }
 
+.contact-nav-item:not(:last-child) {
+  margin-right: 30px;
+}
+
 .site-nav .link {
   padding-top: 32px;
   padding-bottom: 32px;
-
   color: var(--title-color);
 }
 
@@ -169,6 +203,8 @@ img {
 }
 
 .contact-nav .link {
+  display: flex;
+  align-items: center;
   padding-top: 32px;
   padding-bottom: 32px;
   color: var(--primary-text-color);
@@ -179,6 +215,11 @@ img {
   color: var(--accent-color);
 }
 
+.contact-nav .icon-contact {
+  margin-right: 10px;
+  fill: currentColor;
+}
+
 /* index.html */
 
 /* Герой */
@@ -186,14 +227,12 @@ img {
 .hero {
   padding-top: 200px;
   padding-bottom: 200px;
-
   text-align: center;
 }
 
 .hero-title {
   width: 697px;
   margin: 0 auto 31px;
-
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
@@ -204,12 +243,12 @@ img {
 
 .overlay {
   max-width: 1600px;
-  height: 600px;
   margin-left: auto;
   margin-right: auto;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-color: var(--dark-bg-color);
   background-image: linear-gradient(
       to right,
       rgba(47, 48, 58, 0.4),
@@ -220,12 +259,11 @@ img {
 
 .button {
   padding: 10px 32px;
+  border: none;
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   min-width: 200px;
-
   cursor: pointer;
-
   font-family: inherit;
   font-weight: 700;
   font-size: 16px;
@@ -250,7 +288,6 @@ img {
 
 .section-title {
   margin-bottom: 50px;
-
   font-weight: 700;
   font-size: 36px;
   line-height: 1.17;
@@ -266,7 +303,7 @@ img {
 
 .feature-list .title {
   margin-bottom: 10px;
-
+  margin-top: 30px;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
@@ -276,6 +313,35 @@ img {
 
 .feature-item {
   --grid-item: 4;
+}
+
+.feature-item::before {
+  content: " ";
+  display: block;
+  height: 120px;
+
+  background-image: url(../images/icon/antenna.svg);
+  background-size: 70px 70px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 4px;
+  background-color: var(--background-button-color);
+}
+
+.icon-antenna::before {
+  background-image: url(../images/icon/antenna.svg);
+}
+
+.icon-clock::before {
+  background-image: url(../images/icon/clock.svg);
+}
+
+.icon-diagram::before {
+  background-image: url(../images/icon/diagram.svg);
+}
+
+.icon-astronaut::before {
+  background-image: url(../images/icon/astronaut.svg);
 }
 
 /* Чем мы занимаемся */
@@ -298,7 +364,6 @@ img {
 
 .team-list .title {
   margin-bottom: 10px;
-
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
@@ -307,8 +372,7 @@ img {
 }
 
 .team-list-profession {
-  margin-bottom: 0;
-
+  margin-bottom: 16px;
   font-size: 16px;
   line-height: 1.19;
   text-align: center;
@@ -326,11 +390,60 @@ img {
   background-color: var(--primary-white-color);
 }
 
+/* Клиенты */
+
+.clients .clients-list {
+  display: flex;
+}
+
+.clients-item {
+  --grid-item: 6;
+}
+
+.link-company {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+  border: 1px solid var(--icon-color);
+  border-radius: 4px;
+  color: var(--icon-color);
+}
+
+.clients .link-company:hover,
+.clients .link-company:focus {
+  border-color: solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+.icon-company {
+  fill: currentColor;
+}
+
 /* Подвал сираницы */
 
 .footer {
-  padding-top: 60px;
+  background-color: var(--dark-bg-color);
+}
+
+.container-address {
+  display: flex;
   padding-bottom: 60px;
+}
+
+.footer-contacts {
+  padding-top: 60px;
+  flex-basis: calc((50% - 45px) / 2);
+}
+
+.footer-socials {
+  padding-top: 72px;
+  flex-basis: calc((50% - 45px) / 2);
+}
+
+.footer-socials .social-icons {
+  display: flex;
+  justify-content: start;
 }
 
 .footer-logo {
@@ -355,6 +468,22 @@ img {
   margin-bottom: 9px;
 }
 
+.footer-socials .join-in {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--primary-white-color);
+}
+
+.footer-socials .icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--primary-white-color);
+}
+
 /* portfolio.html */
 
 /* Фильтр проектов */
@@ -375,9 +504,7 @@ img {
   padding: 6px 22px;
   border: none;
   border-radius: 4px;
-
   cursor: pointer;
-
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
@@ -391,7 +518,6 @@ img {
 .filter-button:focus {
   color: var(--primary-white-color);
   background-color: var(--accent-color);
-
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
@@ -401,12 +527,18 @@ img {
 
 .projects-item {
   --grid-item: 3;
-  border: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.projects-item:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .projects-title {
   margin-bottom: 4px;
-
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
@@ -416,9 +548,11 @@ img {
 
 .projects-filter {
   margin-bottom: 0;
-
   font-size: 16px;
   line-height: 1.87;
+  font-weight: 400;
+
+  color: var(--primary-text-color);
 }
 
 .projects-content {
@@ -426,5 +560,5 @@ img {
 }
 
 .projects .link {
-  color: var(--primary-text-color);
+  color: inherit;
 }
